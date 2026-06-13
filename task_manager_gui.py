@@ -1,24 +1,4 @@
-"""
-=========================================================
-  TASKFLOW - Multi Role Task Manager (Beginner Version)
-=========================================================
-Roles:
-  - Admin    : default login (admin / admin123) - can create Managers & Employees
-  - Manager  : can assign tasks to Employees
-  - Employee : can see their tasks and update status
 
-How to run:
-  1) Make sure Python is installed (3.8+)
-  2) Save this file as task_manager.py
-  3) Open terminal in that folder and run:
-         python task_manager.py
-  4) A 'tasks.db' file will be created automatically.
-
-Default Admin Login:
-  Username: admin
-  Password: admin123
-=========================================================
-"""
 
 import sqlite3
 import tkinter as tk
@@ -26,9 +6,7 @@ from tkinter import ttk, messagebox
 from datetime import datetime
 
 
-# =========================================================
-# STEP 1: DATABASE SETUP
-# =========================================================
+
 DB_NAME = "tasks.db"
 
 
@@ -81,9 +59,7 @@ def setup_database():
     conn.close()
 
 
-# =========================================================
-# STEP 2: LOGIN WINDOW
-# =========================================================
+
 class LoginWindow:
     def __init__(self, root):
         self.root = root
@@ -144,9 +120,7 @@ class LoginWindow:
         SignupWindow(signup_root)
 
 
-# =========================================================
-# STEP 3: SIGNUP WINDOW (for Manager / Employee)
-# =========================================================
+
 class SignupWindow:
     def __init__(self, root):
         self.root = root
@@ -200,9 +174,7 @@ class SignupWindow:
             conn.close()
 
 
-# =========================================================
-# STEP 4: ADMIN WINDOW (manage users)
-# =========================================================
+
 class AdminWindow:
     def __init__(self, root, user_id, full_name):
         self.root = root
@@ -243,9 +215,7 @@ class AdminWindow:
         new_root.mainloop()
 
 
-# =========================================================
-# STEP 5: MANAGER WINDOW (assign tasks)
-# =========================================================
+
 class ManagerWindow:
     def __init__(self, root, user_id, full_name):
         self.root = root
@@ -372,9 +342,7 @@ class ManagerWindow:
         new_root.mainloop()
 
 
-# =========================================================
-# STEP 6: EMPLOYEE WINDOW (view tasks + update status)
-# =========================================================
+
 class EmployeeWindow:
     def __init__(self, root, user_id, full_name):
         self.root = root
@@ -450,9 +418,7 @@ class EmployeeWindow:
         new_root.mainloop()
 
 
-# =========================================================
-# STEP 7: RUN THE APP
-# =========================================================
+
 if __name__ == "__main__":
     setup_database()
     root = tk.Tk()
